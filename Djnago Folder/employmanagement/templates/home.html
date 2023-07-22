@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task managemnt</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid bg-secondary p-2 ">
+        <div class="row "  style="margin-left:100px;">
+            {% if request.user.is_authenticated %}
+            <div class="col">
+            
+           <a class="btn btn-primary" href="/logout/"> {{request.user.get_first_name}}Log-out</a></div>
+           {% else %}
+           <div class="col" style="margin-left:800px;">
+           <a class="btn btn-primary "  href="/login/">Log-in</a></div>
+            {% endif %}
+        </div>
+</div>
+
+<div class="container-fluid " style="background-color:white;"></div>
+<h2 class="text-center my-4">
+    Office Employe Management System
+</h2>
+<hr>
+<div class="container mx-auto my-5" style="width:800px;border:2px solid black;padding:50px">
+    <div class="row row-cols-2 mx-auto">
+        <a  class="border border-3 btn btn-primary my-2" role="button" href="/add_details/" >Add Details</a>
+        <a class="border border-3 btn btn-primary my-2  " role="button"  href="/remove_details/" >Remove Details</a>
+        <a class="border border-3 btn btn-primary" href="/filter_details/" role="button"  >Filter Details</a>
+        <a  class="border border-3  btn btn-primary" href="/view_details/" role="button"  >View Details</a>
+    </div>
+</div>
+</body>
+</html>
